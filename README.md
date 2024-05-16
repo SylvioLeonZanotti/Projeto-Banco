@@ -2,4 +2,6 @@ Este é um projeto que simula um sistema básico de banco, estou usando como ref
 
 O intuito é apenas exercitar boas práticas de desenvolvimento e integrar o uso de banco de dados ao projeto.
 
+Sinta-se a vontade para clonar o repositório 😊
+
 ![image](https://github.com/SylvioLeonZanotti/Projeto-Banco/assets/123652053/d635080d-00ae-41ae-928e-e3a040c5e79d)
