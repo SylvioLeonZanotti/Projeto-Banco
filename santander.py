@@ -69,48 +69,50 @@ def saque():
                 if score < 100:
                     print("Seu score é muito baixo para solicitar um empréstimo.")
                 elif 100 <= score <= 300:
-                    print("Você aceitou um empréstimo de R$ 5,000. Seu score foi zerado.")
-                    novo_saldo = saldo + 5000
-                    cursor.execute('''UPDATE clientes SET saldo = ?, score = 0 WHERE nome = ?''', (novo_saldo, nome_cliente))
-                    conn.commit()
-                    if novo_saldo >= valor_saque:
-                        novo_saldo -= valor_saque
-                        cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                    print("Você tem a opção de um empréstimo de R$ 5,000. Seu score será zerado.")
+                    if input("Deseja continuar? (sim/não): ").lower() == 'sim':
+                        novo_saldo = saldo + 5000
+                        cursor.execute('''UPDATE clientes SET saldo = ?, score = 0 WHERE nome = ?''', (novo_saldo, nome_cliente))
                         conn.commit()
-                        print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
-                    else:
-                        print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
+                        if novo_saldo >= valor_saque:
+                            novo_saldo -= valor_saque
+                            cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                            conn.commit()
+                            print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
+                        else:
+                            print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
                 elif 300 < score <= 700:
-                    print("Você aceitou um empréstimo de R$ 10,000. Seu score foi diminuído para 299.")
-                    novo_saldo = saldo + 10000
-                    cursor.execute('''UPDATE clientes SET saldo = ?, score = 299 WHERE nome = ?''', (novo_saldo, nome_cliente))
-                    conn.commit()
-                    if novo_saldo >= valor_saque:
-                        novo_saldo -= valor_saque
-                        cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                    print("Você tem a opção de um empréstimo de R$ 10,000. Seu score será diminuído para 299.")
+                    if input("Deseja continuar? (sim/não): ").lower() == 'sim':
+                        novo_saldo = saldo + 10000
+                        cursor.execute('''UPDATE clientes SET saldo = ?, score = 299 WHERE nome = ?''', (novo_saldo, nome_cliente))
                         conn.commit()
-                        print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
-                    else:
-                        print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
+                        if novo_saldo >= valor_saque:
+                            novo_saldo -= valor_saque
+                            cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                            conn.commit()
+                            print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
+                        else:
+                            print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
                 elif 700 < score <= 1000:
-                    print("Você aceitou um empréstimo de R$ 15,000. Seu score foi diminuído para 699.")
-                    novo_saldo = saldo + 15000
-                    cursor.execute('''UPDATE clientes SET saldo = ?, score = 699 WHERE nome = ?''', (novo_saldo, nome_cliente))
-                    conn.commit()
-                    if novo_saldo >= valor_saque:
-                        novo_saldo -= valor_saque
-                        cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                    print("Você tem a opção de um empréstimo de R$ 15,000. Seu score será diminuído para 699.")
+                    if input("Deseja continuar? (sim/não): ").lower() == 'sim':
+                        novo_saldo = saldo + 15000
+                        cursor.execute('''UPDATE clientes SET saldo = ?, score = 699 WHERE nome = ?''', (novo_saldo, nome_cliente))
                         conn.commit()
-                        print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
-                    else:
-                        print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
+                        if novo_saldo >= valor_saque:
+                            novo_saldo -= valor_saque
+                            cursor.execute('''UPDATE clientes SET saldo = ? WHERE nome = ?''', (novo_saldo, nome_cliente))
+                            conn.commit()
+                            print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso. Novo saldo: R$ {novo_saldo:.2f}\n")
+                        else:
+                            print(f"O saldo ainda é insuficiente para o saque. Saldo atual: R$ {novo_saldo:.2f}")
             else:
                 print("Operação de saque cancelada.")
     else:
         print("Cliente não encontrado.")
 
     conn.close()
-
 
 def deposito():
     print("\nRealizar Depósito\n")
