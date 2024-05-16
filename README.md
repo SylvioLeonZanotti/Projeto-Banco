@@ -1,0 +1,1 @@
+Este é um projeto que simula um sistema básico de banco, estou usando como referência o Santander, de incio estou criando as funções sem interface gráfica mas irei atualizar o projeto e criar uma interface para ficar mais atratívo e intuitivo para mexer.
